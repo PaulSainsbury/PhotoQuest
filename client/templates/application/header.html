@@ -8,7 +8,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="{{pathFor 'home'}}">PlaceQuest</a>
+        <a class="navbar-brand" href="{{pathFor 'home'}}">Photo Quest</a>
       </div>
       <div class="collapse navbar-collapse" id="navigation">
         {{#if currentUser}}
@@ -17,6 +17,14 @@
         </ul>
         {{/if}}
         <ul class="nav navbar-nav navbar-right">
+          <form class="navbar-form navbar-left" role="search">
+            <div class="input-group">
+              <input type="text" name="header-search" id="header-search" class="form-control" placeholder="Search">
+              <span class="input-group-btn">
+                <button type="submit" name="header-search" id="header-search" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+              </span>
+            </div>
+          </form>
           {{> loginButtons}}
         </ul>
       </div>
