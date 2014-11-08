@@ -1,7 +1,9 @@
 <template name="questList">
   <div class="list-group col-md-6">
     {{#each quests}}
-      {{> questOverview}}
+      {{> questSummary}}
+    {{else}}
+      <li>No quests found matching your search term.</li>
     {{/each}}
   </div>
 </template>

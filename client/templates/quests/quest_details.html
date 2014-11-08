@@ -1,7 +1,22 @@
 <template name="questDetails">
-  {{title}} - {{owner}} - {{location}}<br/>
-  {{type}} - {{createdDate}}<br/>
-  {{description}}<br/>
-  Difficulty Level: {{difficulty}}<br/>
-  Completed: {{completedCount}}<br/>
+  <div class="fluid-container">
+    <div class="row">
+      <div class="col-md-4">
+        <h4>
+          <span class="{{questType.iconClass}}" title="{{type}}"></span>
+          {{title}} <small>(by {{owner}})</small>
+          <span class="badge">{{completedCount}}</span>
+        </h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        {{location}}
+      </div>
+      <div class="col-md-2 text-right">
+        <small>Rated {{difficulty}}/5 on {{createdDate}}</small>
+      </div>
+    </div>
+  </div>
+  {{description}}
 </template>
