@@ -1,7 +1,7 @@
 var Fixture = {
   createUsers : function () {
     var billId = Accounts.createUser({
-      username: 'bill', 
+      username: 'bill',
       email: 'paul+bill@digitaltinder.com',
       password: 'bill',
       profile: { name: 'Bill Billington'}
@@ -9,17 +9,17 @@ var Fixture = {
     var bill = Meteor.users.findOne(billId);
 
     var aliceId = Accounts.createUser({
-      username: 'alice', 
+      username: 'alice',
       email: 'paul+alice@digitaltinder.com',
       password: 'alice',
       profile: { name: 'Alice Allerton'}
     });
     var alice = Meteor.users.findOne(aliceId);
-    
+
     return {
       bill: bill,
       alice: alice
-    }
+    };
   },
   createQuestTypes : function() {
     var photoId = QuestTypes.insert({
@@ -27,32 +27,32 @@ var Fixture = {
       iconClass: 'glyphicon glyphicon-camera'
     });
     var photo = QuestTypes.findOne(photoId);
-    
+
     var postcardId = QuestTypes.insert({
       name: 'Postcard',
       iconClass: 'glyphicon glyphicon-envelope'
     });
     var postcard = QuestTypes.findOne(postcardId);
-    
+
     var searchId = QuestTypes.insert({
       name: 'Search',
       iconClass: 'glyphicon glyphicon-eye-open'
     });
     var search = QuestTypes.findOne(searchId);
-    
+
     var meetId = QuestTypes.insert({
       name: 'Meet',
       iconClass: 'glyphicon glyphicon-user'
     });
     var meet = QuestTypes.findOne(meetId);
-    
+
     return {
       photo: photo,
       postcard: postcard,
       search: search,
       meet: meet
-    }
-  }, 
+    };
+  },
   createQuests: function(users, questTypes) {
     var now = new Date().getTime();
 
@@ -68,7 +68,7 @@ var Fixture = {
       location: 'Johannesburg City Zoo, Emmarentia, Johannesburg, South Africa',
       completedCount: 0
     });
-  
+
     var nelsonSquareId = Quests.insert({
       owner_userId: users.bill._id,
       owner: users.bill.profile.name,
@@ -81,7 +81,7 @@ var Fixture = {
       location: 'Nelson Mandela Square, Sandton, Johannesburg, South Africa',
       completedCount: 0
     });
-    
+
     var pilanesbergPostcardId = Quests.insert({
       owner_userId: users.alice._id,
       owner: users.alice.profile.name,
@@ -94,7 +94,7 @@ var Fixture = {
       location: 'Pilanesberg National Park, Pilanesberg, Northwest Province, South Africa',
       completedCount: 0
     });
-    
+
     var cptTableMountain = Quests.insert({
       owner_userId: users.alice._id,
       owner: users.alice.profile.name,
@@ -107,7 +107,7 @@ var Fixture = {
       location: 'Table Mountain, Cape Town, South Africa',
       completedCount: 0
     });
-    
+
     var cptOceanarium = Quests.insert({
       owner_userId: users.alice._id,
       owner: users.alice.profile.name,
@@ -119,7 +119,7 @@ var Fixture = {
       difficulty: 1,
       location: 'Cape Town Aquarium, V&A Waterfront, Cape Town, South Africa',
       completedCount: 0
-    });  
+    });
 
     var dbnOceanarium = Quests.insert({
       owner_userId: users.bill._id,
@@ -132,7 +132,7 @@ var Fixture = {
       difficulty: 1,
       location: 'uShaka Marine World, Waterfront, Durban, South Africa',
       completedCount: 0
-    });  
+    });
   }
 };
 
@@ -143,4 +143,3 @@ if (Quests.find().count() === 0) {
   var questTypes = Fixture.createQuestTypes();
   var quests = Fixture.createQuests(users, questTypes);
 }
-
